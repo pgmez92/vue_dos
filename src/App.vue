@@ -18,6 +18,9 @@
           <router-link class="nav-link" aria-current="page" to="/api"
             >Api</router-link
           >
+                    <router-link class="nav-link" aria-current="page" to="/carrito"
+            >Carrito</router-link
+          >
         </div>
       </div>
     </nav>
