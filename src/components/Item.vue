@@ -1,11 +1,15 @@
 <template>
   <div>
-    <img :src="elementSelect" alt="nordic" />
+    <img :src="imagen" alt="nordic" />
     <div class="col-10">
-      nombre: <h3 v-html="titulo"></h3>
-      descrp: <p v-text="descripcion"></p>
-      precio: <p v-text="precio"></p>
-      TOTAL: <p v-text="total"></p>
+      nombre:
+      <h3 v-html="titulo"></h3>
+      descrp:
+      <p v-text="descripcion"></p>
+      precio:
+      <p v-text="precio"></p>
+      TOTAL:
+      <p v-text="total"></p>
       <input type="number" v-model="cantidad" size="5" />
     </div>
   </div>
@@ -23,10 +27,10 @@ export default {
     descripcion: String,
     precio: Number,
   },
-  setup(props) {
+  setup(props, context) {
     let cantidad = ref(1);
     let total = computed(() => {
-      return (props.precio * cantidad).toFixed(2);
+      return (props.precio * cantidad.value).toFixed(2);
     });
     watch(total, () => {
       context.emit("calcTotal", total);

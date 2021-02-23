@@ -8,15 +8,18 @@
           :descripcion="item.descripcion"
           :imagen="item.img"
           :precio="item.precio"
-          @calcTotal="ver"
+          @calcTotal="verCambio"
         />
       </li>
     </ul>
+    TOTAL PASTISAL:
+    <p>{{ totalGlobal }}</p>
   </div>
 </template>
 
 <script>
 import Item from "@/components/Item";
+import { ref } from "vue";
 export default {
   name: "Carrito",
   components: {
@@ -24,18 +27,24 @@ export default {
   },
   props: {},
   setup() {
+    let totalGlobal = ref(0);
     const catalogo = [
       {
         nombre: "barco",
         descripcion: "",
-        precio: 30,
+        precio: 30.3,
         img: "img/barco-vikingo.png",
       },
-      { nombre: "cuerno", descripcion: "", precio: 10, img: "img/cuerno.png" },
+      {
+        nombre: "cuerno",
+        descripcion: "",
+        precio: 10.2,
+        img: "img/cuerno.png",
+      },
       {
         nombre: "vikingo",
         descripcion: "",
-        precio: 20,
+        precio: 20.5,
         img: "img/vikingo.png",
       },
       {
@@ -45,12 +54,14 @@ export default {
         img: "img/vikinga.png",
       },
     ];
-    const ver = () => {
-      
-    };
+    function verCambio(total) {
+      totalGlobal.value += parseFloat(total.value);
+    }
 
     return {
       catalogo,
+      verCambio,
+      totalGlobal,
     };
   },
 };
