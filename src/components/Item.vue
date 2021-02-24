@@ -1,6 +1,6 @@
 <template>
   <div>
-    <img :src="imagen" alt="nordic" />
+    <Gallery :src="imagen" alt="nordic" />
     <div class="col-10">
       nombre:
       <h3 v-html="titulo"></h3>
@@ -18,6 +18,7 @@
 
 <script>
 import { ref, computed, watch } from "vue";
+import Gallery from "@/components/Gallery.vue"
 
 export default {
   name: "Item",
@@ -26,6 +27,9 @@ export default {
     titulo: String,
     descripcion: String,
     precio: Number,
+  },
+  components:{
+    Gallery,
   },
   setup(props, context) {
     let cantidad = ref(1);

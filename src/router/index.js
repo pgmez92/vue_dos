@@ -3,12 +3,18 @@ import Home from '../views/Home.vue'
 import About from '../views/About.vue'
 import Api from '../views/Api.vue'
 import Carrito from '../views/Carrito.vue'
+import PruebApiVista from '../views/PruebApiVista.vue'
 
 const routes = [
   {
     path: '/',
     name: 'Home',
     component: Home
+  },
+  {
+    path: '/pruebapi',
+    name: 'PruebApiVista',
+    component: PruebApiVista
   },
   {
     path: '/about',
