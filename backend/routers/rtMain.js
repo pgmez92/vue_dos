@@ -1,7 +1,6 @@
 const express = require('express')
 const daoUsuarios = require('../dao/daoUsuarios')
 const rtMain = express.Router()
-const Usuario = require('../models/Usuario')
 
 rtMain.get("/welcome", (req, res) => {
     res.json({
@@ -20,9 +19,9 @@ rtMain.get("/welcome", (req, res) => {
 
 rtMain.post('/guardar', (req, res) => {
     daoUsuarios.guardar(req.body)
-        .then(user => {
-            user
-        })
+        .then(res.json({
+            respuesta: "datos recibidos",
+        }))
         .catch((err) => {
             console.log(err)
         })

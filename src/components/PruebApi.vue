@@ -26,7 +26,9 @@ export default {
         headers: { "Content-type": "application/json" },
       })
         .then((res) => res.json())
-        .then((datos) => (info.user = datos));
+        .then((datos) => {
+          info.user = datos;
+        });
     }
     return {
       nombre,
