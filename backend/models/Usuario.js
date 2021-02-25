@@ -4,6 +4,9 @@ const { Schema } = mongoose
 const schemaUsuario = new Schema({
     nombre: {
         type: String,
+    },
+    apellido: {
+        type: String,
     }
 })
 

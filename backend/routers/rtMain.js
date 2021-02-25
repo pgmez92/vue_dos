@@ -8,23 +8,19 @@ rtMain.get("/welcome", (req, res) => {
     })
 })
 
-/* rtMain.post("/nuevo", (req, res) => {
-    let datos = req.body;
-    console.log("guardaddo en bdd", datos)
-    res.json({
-        respuesta: "datos recibidos",
-        datos: datos,
-    })
-}) */
+rtMain.get('/listado', async function (req, res) {
+    let misUsuarios = await daoUsuarios.listar()
+    res.json(misUsuarios)
+})
 
 rtMain.post('/guardar', (req, res) => {
     daoUsuarios.guardar(req.body)
-        .then(res.json({
-            respuesta: "datos recibidos",
-        }))
-        .catch((err) => {
-            console.log(err)
-        })
+    .then(res.json())
+})
+
+rtMain.post('/eliminar', (req, res) => {
+    daoUsuarios.eliminar(req.body.id)
+    res.json("usuario eliminado")
 })
 
 module.exports = rtMain;
