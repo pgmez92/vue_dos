@@ -24,6 +24,10 @@
           <router-link class="nav-link" aria-current="page" to="/pruebapi"
             >Pruebapi</router-link
           >
+          <router-link class="nav-link" aria-current="page" to="/multilang"
+            >Multilang</router-link
+          >
+        
         </div>
       </div>
     </nav>

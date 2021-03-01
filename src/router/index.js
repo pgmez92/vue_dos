@@ -4,12 +4,18 @@ import About from '../views/About.vue'
 import Api from '../views/Api.vue'
 import Carrito from '../views/Carrito.vue'
 import PruebApiVista from '../views/PruebApiVista.vue'
+import MultiLang from '../views/MultiLang.vue'
 
 const routes = [
   {
     path: '/',
     name: 'Home',
     component: Home
+  },
+    {
+    path: '/multilang',
+    name: 'MultiLang',
+    component: MultiLang
   },
   {
     path: '/pruebapi',
